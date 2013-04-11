@@ -6,6 +6,8 @@ package es.home.almacen.bbdd.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +37,11 @@ public class DiscoServiceImpl implements DiscoService {
 	@Override
 	public List<Disco> findAll() {
 		return dao.findAll();
+	}
+
+	@Override
+	public Page<Disco> findAll(final Pageable page) {
+		return dao.findAll(page);
 	}
 
 	@Override

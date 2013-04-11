@@ -47,7 +47,6 @@
 		<hibernate.version>4.1.4.Final</hibernate.version>
 		<log4j.version>1.2.16</log4j.version>
 		<mysql.version>5.1.14</mysql.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
