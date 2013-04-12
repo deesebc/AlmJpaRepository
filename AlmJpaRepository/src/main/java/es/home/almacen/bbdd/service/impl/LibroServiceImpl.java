@@ -42,13 +42,56 @@ public class LibroServiceImpl implements LibroService {
 	}
 
 	@Override
+	public Page<Libro> findByAutor(final String autor, final Pageable pageable) {
+		return dao.findByAutor(autor, pageable);
+	}
+
+	@Override
 	public Libro findById(final Integer id) {
 		return dao.findOne(id);
 	}
 
 	@Override
+	public Page<Libro> findByNombre(final String nombre, final Pageable pageable) {
+		return dao.findByNombre(nombre, pageable);
+	}
+
+	@Override
+	public Page<Libro> findByNombreAndAutor(final String nombre, final String autor,
+			final Pageable pageable) {
+		return dao.findByNombreAndAutor(nombre, autor, pageable);
+	}
+
+	@Override
+	public Page<Libro> findByNombreAndAutorLike(final String nombre, final String autor,
+			final Pageable pageable) {
+		return dao.findByNombreAndAutorLike(nombre, autor, pageable);
+	}
+
+	@Override
+	public Page<Libro> findByNombreLike(final String nombre, final Pageable pageable) {
+		return dao.findByNombreLike(nombre, pageable);
+	}
+
+	@Override
+	public Page<Libro> findByNombreLikeAndAutorLike(final String nombre, final String autor,
+			final Pageable pageable) {
+		return dao.findByNombreLikeAndAutorLike(nombre, autor, pageable);
+	}
+
+	@Override
+	public List<Libro> findSearchBooks(final String nombre, final String autor, final String serie) {
+		return dao.findSearchBooks(nombre, autor, serie);
+	}
+
+	@Override
+	public Page<Libro> findSearchBooks(final String nombre, final String autor, final String serie,
+			final Pageable pagina) {
+		return dao.findSearchBooks(nombre, autor, serie, pagina);
+	}
+
+	@Override
 	public void remove(final Libro entity) {
-		// TODO Auto-generated method stub
 		dao.delete(entity);
 	}
 

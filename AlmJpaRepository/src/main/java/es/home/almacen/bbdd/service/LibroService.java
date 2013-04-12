@@ -22,7 +22,23 @@ public interface LibroService {
 
 	Page<Libro> findAll(Pageable page);
 
+	Page<Libro> findByAutor(String autor, Pageable pageable);
+
 	Libro findById(final Integer id);
+
+	Page<Libro> findByNombre(String nombre, Pageable pageable);
+
+	Page<Libro> findByNombreAndAutor(String nombre, String autor, Pageable pageable);
+
+	Page<Libro> findByNombreAndAutorLike(String nombre, String autor, Pageable pageable);
+
+	Page<Libro> findByNombreLike(String nombre, Pageable pageable);
+
+	Page<Libro> findByNombreLikeAndAutorLike(String nombre, String autor, Pageable pageable);
+
+	List<Libro> findSearchBooks(String nombre, String autor, String serie);
+
+	Page<Libro> findSearchBooks(String nombre, String autor, String serie, Pageable pagina);
 
 	void remove(final Libro entity);
 
