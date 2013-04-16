@@ -36,9 +36,12 @@ public interface LibroService {
 
 	Page<Libro> findByNombreLikeAndAutorLike(String nombre, String autor, Pageable pageable);
 
-	List<Libro> findSearchBooks(String nombre, String autor, String serie);
+	Page<Libro> findSearchBooks(String nombre, String autor, String serie, Pageable pageable);
 
-	Page<Libro> findSearchBooks(String nombre, String autor, String serie, Pageable pagina);
+	public Page<Libro> findSearchBooksAnd(final String nombre, final String autor,
+			final String serie, final Pageable pagina);
+
+	Page<Libro> findSearchBooksOr(String nombre, String autor, String serie, Pageable pagina);
 
 	void remove(final Libro entity);
 

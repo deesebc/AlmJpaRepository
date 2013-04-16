@@ -80,14 +80,21 @@ public class LibroServiceImpl implements LibroService {
 	}
 
 	@Override
-	public List<Libro> findSearchBooks(final String nombre, final String autor, final String serie) {
-		return dao.findSearchBooks(nombre, autor, serie);
+	public Page<Libro> findSearchBooks(final String nombre, final String autor, final String serie,
+			final Pageable pageable) {
+		return dao.findSearchBooks(nombre, autor, serie, pageable);
 	}
 
 	@Override
-	public Page<Libro> findSearchBooks(final String nombre, final String autor, final String serie,
-			final Pageable pagina) {
-		return dao.findSearchBooks(nombre, autor, serie, pagina);
+	public Page<Libro> findSearchBooksAnd(final String nombre, final String autor,
+			final String serie, final Pageable pagina) {
+		return dao.findSearchBooksAnd(nombre, autor, serie, pagina);
+	}
+
+	@Override
+	public Page<Libro> findSearchBooksOr(final String nombre, final String autor,
+			final String serie, final Pageable pagina) {
+		return dao.findSearchBooksOr(nombre, autor, serie, pagina);
 	}
 
 	@Override

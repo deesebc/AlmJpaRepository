@@ -3,8 +3,6 @@
  */
 package es.home.almacen.bbdd.test.service;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -141,7 +139,7 @@ public class BookServiceTest {
 			String autor = "n";
 			String serie = "n";
 			Pageable pageable = null;
-			List<Libro> h = service.findSearchBooks(nombre, autor, serie);
+			Page<Libro> h = service.findSearchBooks(nombre, autor, serie, null);
 			for (Libro libro : h) {
 				LOGGER.info(libro.getNombre());
 			}
