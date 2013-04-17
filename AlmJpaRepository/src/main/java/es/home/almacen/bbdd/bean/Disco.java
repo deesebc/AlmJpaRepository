@@ -40,6 +40,13 @@ public class Disco implements java.io.Serializable {
 		this.ident = ident;
 	}
 
+	public Disco(final Integer ident, final String nombre, final String grupo) {
+		super();
+		this.ident = ident;
+		this.nombre = nombre;
+		this.grupo = grupo;
+	}
+
 	public Disco(final Integer ident, final String nombre, final String grupo,
 			final Set<Cancion> canciones, final Set<Interprete> interpretes) {
 		this.ident = ident;

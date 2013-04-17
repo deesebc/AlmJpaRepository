@@ -13,7 +13,7 @@ import es.home.almacen.bbdd.bean.Interprete;
  * @author xe29197
  * 
  */
-public interface DiscRepository extends JpaRepository<Disco, Integer> {
+public interface DiscRepository extends JpaRepository<Disco, Integer>, DiscRepositoryCustom {
 
 	@Query("select d.interpretes from Disco d where d.ident = ?1")
 	Page<Interprete> findSingersByIdDisc(Integer idDisco, Pageable pagina);

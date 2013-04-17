@@ -20,34 +20,32 @@ import org.springframework.data.jpa.repository.query.QueryUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
-import es.home.almacen.bbdd.bean.Libro;
-import es.home.almacen.bbdd.repository.BookRepositoryCustom;
+import es.home.almacen.bbdd.bean.Disco;
+import es.home.almacen.bbdd.repository.DiscRepositoryCustom;
 
 /**
  * @author xe29197
  * 
  */
 @Repository
-public class BookRepositoryImpl extends AbstractRepositoryImpl<Libro> implements
-		BookRepositoryCustom {
+public class DiscRepositoryImpl extends AbstractRepositoryImpl<Disco> implements
+		DiscRepositoryCustom {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
-	public Page<Libro> findSearchBooks(final String nombre, final String autor, final String serie,
+	public Page<Disco> findSearchDiscs(final String nombre, final String grupo,
 			final Pageable pagina) {
 		CriteriaBuilder builder = em.getCriteriaBuilder();
-		CriteriaQuery<Libro> query = builder.createQuery(Libro.class);
-		Root<Libro> root = query.from(Libro.class);
+		CriteriaQuery<Disco> query = builder.createQuery(Disco.class);
+		Root<Disco> root = query.from(Disco.class);
 
 		List<Predicate> predicates = new ArrayList<Predicate>();
 		if (StringUtils.hasText(nombre)) {
 			predicates.add(builder.like(root.<String> get("nombre"), nombre));
-		} else if (StringUtils.hasText(autor)) {
-			predicates.add(builder.like(root.<String> get("autor"), autor));
-		} else if (StringUtils.hasText(serie)) {
-			predicates.add(builder.like(root.<String> get("serie"), serie));
+		} else if (StringUtils.hasText(grupo)) {
+			predicates.add(builder.like(root.<String> get("grupo"), grupo));
 		}
 
 		Predicate whereClause = builder.and(predicates.toArray(new Predicate[predicates.size()]));
@@ -61,12 +59,10 @@ public class BookRepositoryImpl extends AbstractRepositoryImpl<Libro> implements
 
 		Path<Integer> identPath = root.get("ident");
 		Path<String> nombrePath = root.get("nombre");
-		Path<String> autorPath = root.get("autor");
-		Path<String> seriePath = root.get("serie");
-		CriteriaQuery<Libro> cqd = query.multiselect(identPath, nombrePath, autorPath, seriePath);
+		Path<String> grupoPath = root.get("grupo");
+		CriteriaQuery<Disco> cqd = query.multiselect(identPath, nombrePath, grupoPath);
 
 		return readPage(em.createQuery(cqd), pagina, total);
-
 	}
 
 }

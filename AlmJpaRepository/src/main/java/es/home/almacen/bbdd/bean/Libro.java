@@ -35,6 +35,14 @@ public class Libro implements java.io.Serializable {
 		this.ident = ident;
 	}
 
+	public Libro(final Integer ident, final String nombre, final String autor, final String serie) {
+		super();
+		this.ident = ident;
+		this.nombre = nombre;
+		this.autor = autor;
+		this.serie = serie;
+	}
+
 	public Libro(final Integer ident, final String nombre, final String autor, final String serie,
 			final String argumento, final Integer paginas, final Integer volumen) {
 		super();

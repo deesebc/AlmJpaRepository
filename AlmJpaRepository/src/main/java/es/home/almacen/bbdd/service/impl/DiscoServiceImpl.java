@@ -50,8 +50,13 @@ public class DiscoServiceImpl implements DiscoService {
 	}
 
 	@Override
+	public Page<Disco> findSearchDiscs(final String nombre, final String grupo,
+			final Pageable pageable) {
+		return dao.findSearchDiscs(nombre, grupo, pageable);
+	}
+
+	@Override
 	public void update(final Disco entity) {
 		dao.save(entity);
 	}
-
 }

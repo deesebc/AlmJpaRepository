@@ -24,6 +24,8 @@ public interface DiscoService {
 
 	Disco findById(final Integer id);
 
+	Page<Disco> findSearchDiscs(final String nombre, final String grupo, final Pageable pageable);
+
 	void update(final Disco entity);
 
 }
