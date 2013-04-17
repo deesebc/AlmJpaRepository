@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE log4j:configuration PUBLIC "-//LOGGER" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
-
-<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
-
-	<!-- %5p [%c] (%F:%L) - %m%n -->
-
-	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE log4j:configuration SYSTEM "dtds/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<layout class="org.apache.log4j.PatternLayout">
-			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %5p [%C:%4L] %m%n" />
+			<param name="ConversionPattern" value="%d{DATE} %5p [%C:%4L] %m%n" />
 		</layout>
 	</appender>
 
-	<category name="es.discoteca.bbdd">
-		<priority value="DEBUG" />
+	<category name="es.home.almacen.bbdd">
+		<priority value="debug" />
 	</category>
 
 	<root>
-		<level value="WARN" />
-		<appender-ref ref="Console" />
+		<level value="warn" />
+		<appender-ref ref="console" />
 	</root>
 
 </log4j:configuration>
