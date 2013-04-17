@@ -135,11 +135,11 @@ public class BookServiceTest {
 	@Test
 	public void findSearchBooks() {
 		try {
-			String nombre = "n";
-			String autor = "n";
-			String serie = "n";
-			Pageable pageable = null;
-			Page<Libro> h = service.findSearchBooks(nombre, autor, serie, null);
+			String nombre = "n3";
+			String autor = null;
+			String serie = null;
+			Pageable pageable = new PageRequest(0, 10);
+			Page<Libro> h = service.findSearchBooks(nombre, autor, serie, pageable);
 			for (Libro libro : h) {
 				LOGGER.info(libro.getNombre());
 			}
