@@ -45,6 +45,11 @@ public class DiscoServiceImpl implements DiscoService {
 	}
 
 	@Override
+	public List<String> findAllGroupNames() {
+		return dao.findAllGroupNames();
+	}
+
+	@Override
 	public Disco findById(final Integer id) {
 		return dao.findOne(id);
 	}

@@ -1,5 +1,7 @@
 package es.home.almacen.bbdd.repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +16,9 @@ import es.home.almacen.bbdd.bean.Interprete;
  * 
  */
 public interface DiscRepository extends JpaRepository<Disco, Integer>, DiscRepositoryCustom {
+
+	@Query("select d.grupo from Disco d")
+	List<String> findAllGroupNames();
 
 	@Query("select d.interpretes from Disco d where d.ident = ?1")
 	Page<Interprete> findSingersByIdDisc(Integer idDisco, Pageable pagina);

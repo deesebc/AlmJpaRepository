@@ -22,6 +22,8 @@ public interface DiscoService {
 
 	Page<Disco> findAll(Pageable page);
 
+	List<String> findAllGroupNames();
+
 	Disco findById(final Integer id);
 
 	Page<Disco> findSearchDiscs(final String nombre, final String grupo, final Pageable pageable);
