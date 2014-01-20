@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import es.home.almacen.bbdd.annotation.ExcepcionControl;
 import es.home.almacen.bbdd.bean.Disco;
 import es.home.almacen.bbdd.repository.DiscRepository;
 import es.home.almacen.bbdd.service.DiscoService;
@@ -54,6 +55,7 @@ public class DiscoServiceImpl implements DiscoService {
 		return dao.findOne(id);
 	}
 
+	@ExcepcionControl
 	@Override
 	public Page<Disco> findSearchDiscs(final String nombre, final String grupo,
 			final Pageable pageable) {
