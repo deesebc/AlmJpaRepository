@@ -16,8 +16,8 @@ public class ExceptionAspect {
 	/** The log. */
 	private static Logger LOGGER = Logger.getLogger(ExceptionAspect.class);
 	
-	@Pointcut("@annotation(es.home.almacen.bbdd.annotation.ExcepcionControl)")
-	protected void excepcionControl() {}
+	@Pointcut("@annotation(es.home.almacen.bbdd.annotation.ExceptionControl)")
+	protected void exceptionControl() {}
 	
 	/**
 	 * Advice en los metodos anotados con @ExcepcionControl.
@@ -26,8 +26,8 @@ public class ExceptionAspect {
 	 * @return Object
 	 * @throws Throwable the throwable
 	 */
-	@Around("excepcionControl()")
-	public Object traducirExcepcion(ProceedingJoinPoint joinpoint) throws Throwable {
+	@Around("exceptionControl()")
+	public Object catchException(ProceedingJoinPoint joinpoint) throws Throwable {
 		Object exit = null;
 		try {
 			exit = joinpoint.proceed();
