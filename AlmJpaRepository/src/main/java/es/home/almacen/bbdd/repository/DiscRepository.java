@@ -17,12 +17,14 @@ import es.home.almacen.bbdd.bean.Interprete;
  */
 public interface DiscRepository extends JpaRepository<Disco, Integer>, DiscRepositoryCustom {
 
-	@Query("select d.grupo from Disco d")
-	List<String> findAllGroupNames();
+    @Query("select d.grupo from Disco d")
+    List<String> findAllGroupNames();
 
-	@Query("select d.interpretes from Disco d where d.ident = ?1")
-	Page<Interprete> findSingersByIdDisc(Integer idDisco, Pageable pagina);
+    Page<Interprete> findInterpretesByIdent(Integer idDisco, Pageable pagina);
 
-	@Query("select d.canciones from Disco d where d.ident = ?1")
-	Page<Cancion> findSongsByIdDisc(Integer idDisco, Pageable pagina);
+    @Query("select d.interpretes from Disco d where d.ident = ?1")
+    Page<Interprete> findSingersByIdDisc(Integer idDisco, Pageable pagina);
+
+    @Query("select d.canciones from Disco d where d.ident = ?1")
+    Page<Cancion> findSongsByIdDisc(Integer idDisco, Pageable pagina);
 }

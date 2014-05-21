@@ -13,6 +13,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import es.home.almacen.bbdd.annotation.ExceptionControl;
 import es.home.almacen.bbdd.bean.Disco;
 import es.home.almacen.bbdd.service.DiscoService;
 
