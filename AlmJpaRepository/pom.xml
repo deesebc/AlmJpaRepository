@@ -41,13 +41,15 @@
 	</build>
 
 	<properties>
-		<spring.version>3.1.2.RELEASE</spring.version>
-		<aspectj.version>1.7.0</aspectj.version>
-		<jpa.data.version>1.2.0.RELEASE</jpa.data.version>
+		<spring.version>3.2.8.RELEASE</spring.version>
+		<spring.security.version>3.2.3.RELEASE</spring.security.version>
+		<spring.test.version>3.1.2.RELEASE</spring.test.version>
+		<jpa.data.version>1.5.2.RELEASE</jpa.data.version>
 		<junit.version>4.11</junit.version>
 		<hibernate.version>4.1.4.Final</hibernate.version>
 		<log4j.version>1.2.16</log4j.version>
 		<mysql.version>5.1.14</mysql.version>
+		<aspectj.version>1.6.11</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -78,25 +80,38 @@
 		</dependency>
 		<!-- ASPECT -->
 		<dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-aop</artifactId>
-        <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjrt</artifactId>
-        <version>${aspectj.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.aspectj</groupId>
-        <artifactId>aspectjweaver</artifactId>
-        <version>${aspectj.version}</version>
-    </dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
 		<!-- DEPENDENCY -->
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2</version>
+		</dependency>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- TEST -->
 		<dependency>
@@ -108,7 +123,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring.test.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
