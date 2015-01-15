@@ -24,7 +24,8 @@ import es.home.almacen.bbdd.repository.DiscRepository;
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:conf/repository.xml")
+//@ContextConfiguration(locations = "classpath:conf/repositoryTest.xml")
+@ContextConfiguration(locations = "file:src/test/resources/conf/repositoryTest.xml")
 public class DiscRepositoryTest {
 
     private final Logger LOGGER = Logger.getLogger(DiscRepositoryTest.class);

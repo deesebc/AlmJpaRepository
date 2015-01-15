@@ -26,6 +26,7 @@
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
 			</resource>
 		</resources>
 		<plugins>
@@ -127,4 +128,20 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<profiles>
+		<profile>
+			<id>localMysql</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<maven.hibernate.dialect>org.hibernate.dialect.MySQLDialect</maven.hibernate.dialect>
+				<maven.connection.url>jdbc:mysql://localhost/almacen</maven.connection.url>
+				<maven.connection.driver>com.mysql.jdbc.Driver</maven.connection.driver>
+				<maven.connection.username>root</maven.connection.username>
+				<maven.connection.password>root</maven.connection.password>
+			</properties>
+		</profile>
+	</profiles>
 </project>
