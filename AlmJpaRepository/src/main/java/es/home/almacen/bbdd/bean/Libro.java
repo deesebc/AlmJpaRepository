@@ -10,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -25,11 +28,15 @@ public class Libro implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer ident;
+	@NotNull @NotEmpty
 	private String nombre;
+	@NotNull @NotEmpty
 	private String autor;
 	private String serie;
 	private String argumento;
+	@Digits(integer=2, fraction=0)
 	private Integer paginas;
+	@Digits(integer=2, fraction=0)
 	private Integer volumen;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date publicacion;
