@@ -28,7 +28,6 @@
         <property name="persistenceUnitManager">  
             <bean class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager" />  
         </property>  
-        <!-- <property name="persistenceXmlLocation" value="../META-INF/persistenceTest.xml" /> -->
     </bean>  
    
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">  
