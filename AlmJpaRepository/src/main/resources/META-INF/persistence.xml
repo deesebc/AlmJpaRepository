@@ -7,10 +7,6 @@
 	<persistence-unit name="application" transaction-type="RESOURCE_LOCAL">
 		<properties>
 			<property name="hibernate.dialect" value="${maven.hibernate.dialect}" />
-			<property name="hibernate.connection.url" value="${maven.connection.url}" />
-			<property name="hibernate.connection.driver_class" value="${maven.connection.driver}" />
-			<property name="hibernate.connection.username" value="${maven.connection.username}" />
-			<property name="hibernate.connection.password" value="${maven.connection.password}" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 		</properties>
