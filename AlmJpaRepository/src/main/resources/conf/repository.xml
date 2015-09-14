@@ -15,13 +15,18 @@
 	<tx:annotation-driven />
 	<jpa:repositories base-package="es.home.almacen.bbdd.repository" />
 
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${maven.connection.driver}" />
-		<property name="url" value="${maven.connection.url}" />
-		<property name="username" value="${maven.connection.username}" />
-		<property name="password" value="${maven.connection.password}" />
-	</bean>
+	<bean id="dataSource" class = "com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost/almacen" />
+		<property name="user" value="root" />
+		<property name="password" value="root" />
+
+        <!-- these are C3P0 properties -->
+        <property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
+        <property name="minPoolSize" value="${c3p0.minPoolSize}" />
+        <property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+        <property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
+ </bean>
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
