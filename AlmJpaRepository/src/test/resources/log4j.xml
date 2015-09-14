@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <!DOCTYPE log4j:configuration SYSTEM "dtds/log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{DATE} %5p [%C:%4L] %m%n" />
@@ -10,6 +11,15 @@
 	<category name="es.home.almacen.bbdd">
 		<priority value="debug" />
 	</category>
+	
+	<category name="org.hibernate">
+		<priority value="warn" />
+	</category>
+	
+	<category name="com.mchange">
+		<priority value="warn" />
+	</category>
+	
 
 	<root>
 		<level value="debug" />
