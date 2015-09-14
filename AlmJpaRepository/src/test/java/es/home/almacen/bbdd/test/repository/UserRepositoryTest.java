@@ -24,7 +24,7 @@ import es.home.almacen.bbdd.repository.UserRepository;
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:conf/repository.xml")
+@ContextConfiguration(locations = "classpath:conf/repositoryTest.xml")
 public class UserRepositoryTest {
 
 	private final Logger LOGGER = Logger.getLogger(UserRepositoryTest.class);
@@ -34,36 +34,36 @@ public class UserRepositoryTest {
 
 	@Test
 	public void count() {
-		try{
+		try {
 			long count = dao.count();
 			Assert.assertTrue(count > 0);
-		}catch (final Exception except) {
+			LOGGER.debug("Contador: " + count);
+		} catch (final Exception except) {
 			LOGGER.error("Error: ", except);
 			Assert.assertTrue(false);
 		}
 	}
 
-	
 	@Test
 	@Ignore
 	public void add() {
-		try{
+		try {
 			User user = new User();
 			user.setEnabled(true);
 			user.setPassword("123456");
 			user.setUsername("user1");
 			Set<UserRoles> userRoles = new HashSet<UserRoles>();
-//			UserRoles userRoles1 = new UserRoles();
-//			userRoles1.setAuthority("ADMIN");
-//			userRoles.add(userRoles1);
-//			user.setUserRoles(userRoles);
+			// UserRoles userRoles1 = new UserRoles();
+			// userRoles1.setAuthority("ADMIN");
+			// userRoles.add(userRoles1);
+			// user.setUserRoles(userRoles);
 			UserRoles userRoles2 = new UserRoles();
 			userRoles2.setAuthority("USER");
 			userRoles.add(userRoles2);
 			user.setAuthorities(userRoles);
 			user = dao.save(user);
 			Assert.assertTrue(user.getUserId() != null);
-		}catch (final Exception except) {
+		} catch (final Exception except) {
 			LOGGER.error("Error: ", except);
 			Assert.assertTrue(false);
 		}
